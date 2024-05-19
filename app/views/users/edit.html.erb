@@ -5,18 +5,26 @@
 
 <div class="icon">
 <p>アイコン画像</p>
-<p><img src="https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" alt="エラー"> </p>
-<p class="button">画像アップロード</p>
+  <% if current_user.avatar.attached? %>
+    <img src="<%= url_for(current_user.avatar) %>" alt="アバター画像" style="width: 50px; height: 50px; border-radius: 50%;">
+  <% else %>
+    <img src="https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" alt="デフォルト画像" style="width: 50px; height: 50px; border-radius: 50%;">
+  <% end %>
+
 </div>
 
-<%= form_with model: @user do |form| %>
+<%= form_with model: @user, local: true, multipart: true do |form| %>
   <div>
-    <%= form.label :name,"名前" %><br />
+    <%= form.label :name, "名前" %><br />
     <%= form.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
   <div>
-    <%= form.label :introduce,"自己紹介" %><br />
+    <%= form.label :introduce, "自己紹介" %><br />
     <%= form.text_area :introduce, autofocus: true, autocomplete: "introduce" %>
+  </div>
+  <div>
+    <%= form.label :avatar, "アイコン画像" %><br />
+    <%= form.file_field :avatar %>
   </div>
   <div>
     <%= form.submit "保存" %>

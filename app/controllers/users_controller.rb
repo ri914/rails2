@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   
       def update
         @user = User.find(params[:id])
-        if @user.update(params.require(:user).permit(:name, :introduce))
+        if @user.update(params.require(:user).permit(:name, :introduce, :avatar))
           redirect_to user_profile_path
         else
           render:edit
@@ -40,5 +40,9 @@ class UsersController < ApplicationController
       def destroy
         @user = User.find(params[:id])
         @user.destroy
+      end
+
+      def user_params
+        params.require(:user).permit(:name, :introduce, :avatar)
       end
 end
