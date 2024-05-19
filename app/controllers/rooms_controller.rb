@@ -12,9 +12,12 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to @room
     else
+      puts @room.errors.full_messages
+      flash.now[:alert] = @room.errors.full_messages.join(", ")
       render :new
     end
   end
+  
 
   def show
     @room = Room.find(params[:id])
