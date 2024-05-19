@@ -1,0 +1,38 @@
+<section class="search">
+  <%= form_with url: result_rooms_path, method: :get, local: true do |form| %>
+    <%= form.text_field :search, id: :search, placeholder: 'エリア名を入力' %>
+    <%= form.submit "検索" %>
+  <% end %>
+  <%= form_with url: result2_rooms_path, method: :get, local: true do |form| %>
+    <%= form.text_field :search, id: :search2, placeholder: 'キーワードを入力' %>
+    <%= form.submit "検索" %>
+  <% end %>
+</section>
+
+<h3><%= link_to '←戻る', :back %></h2>
+
+<section class="main">
+<div><img src="https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" alt="エラー" class="img2"></div>
+
+<div class="detail">
+<h2><%= @room.name %></h2>
+<h1><%= @room.fee %>〜</h1>
+<p><%= @room.address %></p>
+<p><%= @room.detail %></p>
+
+<%= form_with model: @reservation, url: confirm_reservations_path, local: true do |form| %>
+<div class="check">
+  <p><%= form.label :checkin ,"チェックイン" %> <br> <%= form.date_field :checkin, required: true, min: Date.today.to_s %></p>
+  <p><%= form.label :checkout ,"チェックアウト" %> <br> <%= form.date_field :checkout, required: true %></p>
+  <p><%= form.label :people ,"人数" %> <br> <%= form.number_field :people, placeholder: '0', required: true, min: 1 %></p>
+  <p><%= form.hidden_field :room_id, value: @room.id %></p>
+</div>
+<% if @reservation.errors.any? %>
+    <p><%= pluralize(@reservation.errors.count, "終了日は開始日以降の日付で選択してください。") %> </p>
+<% end %>
+<%= form.submit "予約する" %>
+<% end %>
+
+</div>
+</section>
+

@@ -1,0 +1,7 @@
+<%= form_with model: @user do |form| %>
+  <div><%= form.label :name, "ユーザー名" %> <br> <%= form.text_field :name,required:true %></div>
+  <div><%= form.label :email, "メールアドレス" %> <br> <%= form.text_field :email,required:true %></div>
+  <div><%= form.label :password, "パスワード" %> <br> <%= form.password_field :password,required:true %></div>
+  <div><%= form.label :password_confirmation, "確認用パスワード" %> <br> <%= form.password_field :password_confirmation,required:true %></div>
+  <%= form.submit "新しいアカウントを作成" %>
+<% end %>

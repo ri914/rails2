@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Stay</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Stay</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <% if user_signed_in? %>
+    <!-- ログイン後のヘッダー -->
+    <header class="header">
+      <div><img src="https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" alt="エラー" class="headicon"></div>
+      <div class="dropdown">
+        <!-- ユーザー名を表示し、クリックでドロップダウンを開く -->
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%= link_to '施設の新規登録', new_room_path, class: 'dropdown-item' %>
+          <%= link_to '予約済み一覧', reservations_path, class: 'dropdown-item' %>
+          <%= link_to '登録済み一覧', rooms_path, class: 'dropdown-item' %>
+          <%= link_to 'アカウント設定', user_path(current_user), class: 'dropdown-item' %>
+          <%= form_with url: destroy_user_session_path, method: :delete do |form| %>
+            <%= form.submit "ログアウト", class: 'dropdown-item' %>
+          <% end %>
+          
+        </div>
+      </div>
+    </header>
+  <% else %>
+    <!-- ログイン前のヘッダー -->
+    <header>
+      <div class="headout"><%= link_to '新規登録', new_user_registration_path %><%= button_to 'ログイン', new_user_session_path, method: :get, class: 'btn btn-primary' %></div>
+    </header>
+  <% end %>
+
+  <!-- jQuery (BootstrapのJavaScriptプラグインの前に配置) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Bootstrap JS (Popper.js included) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+  <%= yield %>
+</body>
 </html>

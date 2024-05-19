@@ -1,0 +1,26 @@
+<%= render 'search_form' %>
+
+<h1>検索結果</h1>
+
+<p>合計：<%= @total_rooms %>件が見つかりました。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>施設名</th>
+      <th>住所</th>
+      <th>施設詳細</th>
+      <th>宿泊料金</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.name %></td>
+        <td><%= room.address %></td>
+        <td><%= room.detail %></td>
+        <td><%= room.fee %>円</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+<h1>予約済み一覧</h1>
+<table>
+<thead>
+  <tr>
+    <th>画像</th>
+    <th>施設名</th>
+    <th>紹介文</th>
+    <th>合計料金</th>
+    <th>チェックイン</th>
+    <th>チェックアウト</th>
+    <th>予約確定日時</th>
+    <th></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @reservations.each do |reservation| %>
+    <tr>
+      <td><img src="https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" alt="エラー" class="img"></td>
+      <td><%= link_to reservation.room.name, room_path(reservation.room) %></td> 
+      <td><%= reservation.room.detail %></td> 
+      <td><%= reservation.total_price %></td>
+      <td><%= reservation.checkin.to_s(:date_jp) %></td>
+      <td><%= reservation.checkout.to_s(:date_jp) %></td>
+      <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+      <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "#{reservation.room.name}を削除してよろしいですか?この操作は取り消せません。" } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

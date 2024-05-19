@@ -1,0 +1,28 @@
+<h1>設定</h1>
+<p><%= link_to 'アカウント', user_path(current_user) %> <%= link_to 'プロフィール', user_profile_path(current_user) %></p>
+
+<h1>プロフィール</h1>
+
+<div class="icon">
+<p>アイコン画像</p>
+<p><img src="https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" alt="エラー"> </p>
+<p class="button">画像アップロード</p>
+</div>
+
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :name,"名前" %><br />
+    <%= form.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div>
+    <%= form.label :introduce,"自己紹介" %><br />
+    <%= form.text_area :introduce, autofocus: true, autocomplete: "introduce" %>
+  </div>
+  <div>
+    <%= form.submit "保存" %>
+    <%= link_to "キャンセル", :back %>
+  </div>
+<% end %>
+
+
+

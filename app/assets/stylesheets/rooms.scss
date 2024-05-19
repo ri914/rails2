@@ -1,0 +1,54 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.button2{
+    padding: 5px 10px; /* 上下のパディング10px、左右のパディング20px */
+    font-size: 16px; /* フォントサイズ */
+    color: black; /* 文字色 */
+    background-color: rgb(237, 230, 230); /* 背景色 */
+    border-color: black;
+    border-radius: 5px; /* 角丸の設定 */
+    display: inline-block;
+    text-decoration: none; /* テキストの下線をなしに */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s; 
+    margin-top: 20px;
+}  
+.img{
+    height: 69.19px;
+    width: 120px;
+}
+
+table th {
+    background-color: #fbc25b;
+    padding: 10px 20px;
+}
+  
+table td {
+    background-color: #f9ecd5;
+    padding: 10px 20px;
+}
+
+.main {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #fbc25b;
+  }
+  
+.detail{
+    width: 50%; 
+    box-sizing: border-box;
+}
+  
+.img2{
+    max-width: 100%; 
+    height: auto;
+}
+
+.search{
+    display:flex
+}
+
+
+  

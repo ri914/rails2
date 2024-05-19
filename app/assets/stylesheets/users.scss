@@ -1,0 +1,47 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.headout{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headin{
+   display: flex;
+   justify-content: flex-end;
+}
+
+.dropdown{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon {
+   display: flex;
+   align-items: center; /* 垂直方向の中央揃え */
+   height: 100px; /* 親要素の高さを指定 */
+}
+
+.button{
+    padding: 5px 10px; /* 上下のパディング10px、左右のパディング20px */
+  font-size: 16px; /* フォントサイズ */
+  color: black; /* 文字色 */
+  background-color: rgb(237, 230, 230); /* 背景色 */
+  border-color: black;
+  border-radius: 5px; /* 角丸の設定 */
+  text-align: center; /* テキストを中央揃え */
+  text-decoration: none; /* テキストの下線をなしに */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: background-color 0.3s; 
+}
+
+.header{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 70px;
+}
+
+.headicon{
+    height: 38px;
+    width: 38px;
+}

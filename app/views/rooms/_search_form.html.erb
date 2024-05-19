@@ -1,0 +1,10 @@
+<section class="search">
+  <%= form_with url: result_rooms_path, method: :get, local: true do |form| %>
+    <%= form.text_field :search, id: :search, placeholder: 'エリア名を入力' %>
+    <%= form.submit "検索" %>
+  <% end %>
+  <%= form_with url: result2_rooms_path, method: :get, local: true do |form| %>
+    <%= form.text_field :search, id: :search2, placeholder: 'キーワードを入力' %>
+    <%= form.submit "検索" %>
+  <% end %>
+</section>

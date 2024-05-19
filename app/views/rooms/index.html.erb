@@ -1,0 +1,26 @@
+<h1>登録済み一覧</h1>
+<table>
+<thead>
+  <tr>
+    <th>画像</th>
+    <th>施設名</th>
+    <th>紹介文</th>
+    <th>料金</th>
+    <th>作成日</th>
+    <th></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @rooms.each do |room| %>
+    <tr>
+      <td><img src="https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" alt="エラー" class="img"></td>
+      <td><%= link_to room.name, room_path(room) %></td>
+      <td><%= room.detail %></td>
+      <td><%= room.fee %></td>
+      <td><%= room.created_at.to_s(:date_jp) %></td>
+      <td><%= link_to "削除", room, method: :delete, data: { confirm: "#{room.name}を削除してよろしいですか?この操作は取り消せません。" } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

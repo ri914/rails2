@@ -1,0 +1,17 @@
+<h2>予約内容の確認</h2>
+<div>
+<p>チェックイン: <%= @reservation.checkin.to_s(:date_jp) %></p>
+<p>チェックアウト: <%= @reservation.checkout.to_s(:date_jp) %></p>
+<p>日数: <%= @reservation.duration %>日</p>
+<p>人数: <%= @reservation.people %>人</p>
+<p>お支払い金額: <%= @reservation.total_price %>円</p>
+</div>
+
+
+
+<%= form_with model: @reservation, url: reservations_path do |form| %>
+  <%= form.hidden_field :room_id, value: @reservation.room_id %>
+  <%= hidden_field_tag 'reservation[checkin]', @reservation.checkin %>
+  <%= hidden_field_tag 'reservation[checkout]', @reservation.checkout %>
+  <%= form.submit '予約を確定する' %>
+<% end %>
