@@ -1,5 +1,6 @@
-<h2>予約内容の確認</h2>
-<div>
+<div class="confirm">
+<h2 class="recheck">予約内容の確認</h2>
+<div class="recheck2">
 <p>チェックイン: <%= @reservation.checkin.to_s(:date_jp) %></p>
 <p>チェックアウト: <%= @reservation.checkout.to_s(:date_jp) %></p>
 <p>日数: <%= @reservation.duration %>日</p>
@@ -7,11 +8,14 @@
 <p>お支払い金額: <%= @reservation.total_price %>円</p>
 </div>
 
-
-
+<div class="save">
 <%= form_with model: @reservation, url: reservations_path do |form| %>
   <%= form.hidden_field :room_id, value: @reservation.room_id %>
   <%= hidden_field_tag 'reservation[checkin]', @reservation.checkin %>
   <%= hidden_field_tag 'reservation[checkout]', @reservation.checkout %>
   <%= form.submit '予約を確定する' %>
 <% end %>
+</div>
+<div class="cancel-link"><%= link_to "キャンセル", :back %></div>
+</div>
+

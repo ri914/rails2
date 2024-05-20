@@ -1,54 +1,197 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.button2{
-    padding: 5px 10px; /* 上下のパディング10px、左右のパディング20px */
-    font-size: 16px; /* フォントサイズ */
-    color: black; /* 文字色 */
-    background-color: rgb(237, 230, 230); /* 背景色 */
-    border-color: black;
-    border-radius: 5px; /* 角丸の設定 */
-    display: inline-block;
-    text-decoration: none; /* テキストの下線をなしに */
-    cursor: pointer; /* カーソルをポインターに */
-    transition: background-color 0.3s; 
-    margin-top: 20px;
-}  
 .img{
     height: 69.19px;
     width: 120px;
 }
 
-table th {
-    background-color: #fbc25b;
-    padding: 10px 20px;
-}
-  
-table td {
-    background-color: #f9ecd5;
-    padding: 10px 20px;
-}
 
 .main {
     display: flex; 
     justify-content: space-between; 
-    align-items: center; 
-    background-color: #fbc25b;
+    align-items: center;
+}
+  
+.detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9d5b6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   
-.detail{
-    width: 50%; 
+  .detail h2 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .detail p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .check {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: white;
+  }
+
+  .check2 input[type="submit"] {
+    width: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .check input[type="date"] {
+    width: 100%; 
+  }
+  
+  
+  .check p {
+    flex-basis: 33.333%; /* または適切な固定値に設定 */
+    min-width: 120px; /* 適切な最小幅に設定 */
+    margin-right: 20px;
+  }
+  
+  .check p:last-child {
+    flex-basis: 100%;
+  }
+  
+  .check input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .check input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* エラーメッセージのスタイリング */
+  .detail p.error {
+    color: #d9534f;
+  }
+  
+  
+
+
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    height: 100px;
+}
+
+.search input[type="submit"] {
+    background-color: gray;
+    cursor: pointer;
     box-sizing: border-box;
 }
   
-.img2{
-    max-width: 100%; 
-    height: auto;
-}
-
-.search{
-    display:flex
+::after, ::before {
+    box-sizing: border-box;
 }
 
 
-  
+.FormContainer {
+    margin: auto;
+    width: 702px;
+    padding: 20px;
+}
+
+
+@media screen and (max-width: 960px) {
+    .FormContainer {
+        width: 600px;
+    }
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+.form-group label {
+    width: 150px; 
+    margin-right: 10px; 
+    color: #333;
+    font-size: 16px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    flex: 1; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.FormContainer .button2 {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.FormContainer .button2:hover {
+    background-color: #e0e0e0;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.check2 input[type="submit"] {
+    width: 100%;
+    margin-bottom: 10px; 
+    background-color: orange;
+}
+
+.save-button input[type="submit"] {
+  background-color: orange;
+  color: white; 
+  padding: 12px 20px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  width: 100%; 
+  font-size: 18px;
+  margin-top: 20px; 
+}
+
+.FormContainer .cancel-link a {
+    display: block; 
+    width: 100%;
+    text-align: center; 
+    padding: 10px 0; 
+    background-color: gray; 
+    border-radius: 4px; 
+}
+
+.FormContainer .cancel-link a:hover {
+    background-color: #e0e0e0;
+}
+

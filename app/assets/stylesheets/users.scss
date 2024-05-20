@@ -45,3 +45,26 @@
     height: 38px;
     width: 38px;
 }
+
+.container {
+    display: flex;
+  }
+  
+.settings-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+}
+  
+.settings-section, .account-section {
+    flex: 1; 
+    padding: 20px; 
+}
+  
+ 
+@media (max-width: 768px) {
+    .settings-container {
+      flex-direction: column; 
+    }
+}
+  

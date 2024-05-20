@@ -1,12 +1,29 @@
-<h1>新規登録</h1>
-
-<%= form_with model: @room do |form| %>
-  <div><%= form.label :name, "施設名" %> <br> <%= form.text_field :name,required:true %></div>
-  <div><%= form.label :detail, "施設詳細" %> <br> <%= form.text_area :detail,required:true %></div>
-  <div><%= form.label :fee, "料金" %> <br> <%= form.number_field :fee, required: true, min: 1 %></div>
-  <div><%= form.label :address, "住所" %> <br> <%= form.text_field :address,required:true %></div>
+<%= form_with model: @room, html: { class: 'FormContainer' } do |form| %>
+  <h1>新規登録</h1>
+  <div class="form-group">
+    <%= form.label :name, "施設名" %>
+    <%= form.text_field :name, required: true %>
+  </div>
+  <div class="form-group">
+    <%= form.label :detail, "施設詳細" %>
+    <%= form.text_area :detail, required: true %>
+  </div>
+  <div class="form-group">
+    <%= form.label :fee, "料金" %>
+    <%= form.number_field :fee, required: true, min: 1 %>
+  </div>
+  <div class="form-group">
+    <%= form.label :address, "住所" %>
+    <%= form.text_field :address, required: true %>
+  </div>
+  <div class="form-group">
+  施設画像
   <p class="button2">画像アップロード</p>
-  <br>
-  <%= form.submit "保存" %>
-  <%= link_to "キャンセル", :back %>
+  </div>
+  
+  <div class="form-actions">
+    <div class="save-button"><%= form.submit "保存" %></div>
+    <div class="cancel-link"><%= link_to "キャンセル", :back %></div>
+  </div>
 <% end %>
+
